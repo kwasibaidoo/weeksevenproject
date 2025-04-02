@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>DynamoDB Todo App</title>
+</head>
+<body class="flex flex-col p-0 border-0 m-0">
+    <nav class="p-5 shadow-lg bg-black text-white">
+        <div class="flex flex-row items-center gap-x-5 justify-center">
+            <a href="/" class="font-sans underline text-md">
+                <div class="nav-item font-bold">Home</div>
+            </a>
+            <a href="/addtask" class="font-sans underline text-md">
+                <div class="nav-item font-bold">Add Task</div>
+            </a>
+        </div>
+    </nav>
+    <header class="p-10 flex justify-center">
+        <h1 class="font-bold font-mono text-3xl">
+            Todo App
+        </h1>
+    </header>
+
+    <div>
+        <section class="flex flex-col gap-x-5" layout:fragment="content">
+            <!-- This will be replaced by content in child templates -->
+        </section>
+    </div>
+
+    <!-- <footer class="flex flex-row justify-center p-5 bg-black text-white">
+        <p class="text-white font-bold">Footer Content</p>
+    </footer> -->
+</body>
+</html>

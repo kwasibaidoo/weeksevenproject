@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/app.html}">
+<head>
+    <title>View Task</title>
+</head>
+<body>
+    <section layout:fragment="content">
+        <div class="flex flex-col p-10">
+            <div class="flex justify-center items-center">
+                <div class="w-1/3 rounded-xl shadow-xl p-5">
+                    <div class="flex flex-col gap-y-5">
+                        <span th:if="${task.status}" class="rounded-full px-2 py-1 bg-green-50 text-green-600 text-xs w-fit">Complete</span>
+                        <span th:unless="${task.status}" class="rounded-full px-2 py-1 bg-amber-50 text-amber-600 text-xs w-fit">Pending</span>
+                        <div class="flex flex-col">
+                            <span class="font-bold">Title</span>
+                            <span th:text="${task.title}">Task Title</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-bold">Summary</span>
+                            <span th:text="${task.summary}"></span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-bold">Content</span>
+                            <span th:text="${task.content}">
+                                
+                            </span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-bold">Created At</span>
+                            <span th:text="${#temporals.format(task.createdAt, 'dd MMM yyyy HH:mm:ss')}"></span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+</body>
+</html>

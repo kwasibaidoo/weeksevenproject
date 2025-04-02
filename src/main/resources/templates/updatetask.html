@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/app.html}">
+<head>
+    <title>Update Task</title>
+</head>
+<body>
+    <section layout:fragment="content">
+        <div class="flex flex-col p-10">
+            <div class="flex justify-center items-center">
+                <div class="w-1/3 rounded-xl shadow-xl p-5">
+                    <form action="/update" class="" method="post" th:action="@{/update}" th:object="${taskDTO}">
+                        <input type="hidden" name="id" th:value="${task.id}">
+                        <div class="mb-3">
+                            <label for="title" class="text-sm text-gray-700">Title</label>
+                            <input name="title" id="title" class="rounded-md w-full ring-gray-300 ring-1 p-1" type="text" th:field="*{title}">
+                            <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="text-sm text-red-600">Error message goes here</span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="summary" class="text-sm text-gray-700">Summary</label>
+                            <input name="summary" id="summary" class="rounded-md w-full ring-gray-300 ring-1 p-1" type="text" th:field="*{summary}">
+                            <span th:if="${#fields.hasErrors('summary')}" th:errors="*{summary}" class="text-sm text-red-600">Error message goes here</span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="content" class="text-sm text-gray-700">Content</label>
+                            <textarea name="content" id="content" class="rounded-md w-full ring-gray-300 ring-1 p-1" th:field="*{content}"></textarea>
+                            <span th:if="${#fields.hasErrors('content')}" th:errors="*{content}" class="text-sm text-red-600">Error message goes here</span>
+                        </div>
+                        <div class="mb-3">
+                            <button class="flex px-3 py-2 rounded-md text-white bg-black hover:cursor-pointer hover:bg-gray-800">
+                                Submit
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+</body>
+</html>
